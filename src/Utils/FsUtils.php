@@ -16,7 +16,7 @@ use ArrayIterator;
 use DirectoryIterator;
 use Iterator;
 use Phalcon\DevTools\Exception\InvalidArgumentException;
-use Phalcon\Text;
+use Phalcon\Support\Helper\Str\ReduceSlashes;
 use RuntimeException;
 use SplFileInfo;
 
@@ -46,7 +46,8 @@ class FsUtils
         $normalized = preg_replace('#/\.(?=/)|^\./|(/|^)\./?$#', '', $normalized);
         $normalized = str_replace(['\\', '/'], DS, $normalized);
 
-        return Text::reduceSlashes($normalized);
+        $reduceSlashes = new ReduceSlashes();
+        return $reduceSlashes($normalized);
     }
 
     /**

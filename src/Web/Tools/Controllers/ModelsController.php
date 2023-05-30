@@ -23,8 +23,9 @@ use Phalcon\Flash\Session;
 use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\DispatcherInterface;
+use Phalcon\Support\Helper\Str\Camelize;
 use Phalcon\Tag;
-use Phalcon\Text;
+
 
 /**
  * @property Dispatcher|DispatcherInterface $dispatcher
@@ -225,9 +226,10 @@ class ModelsController extends Base
 
                     $message = 'Models were created successfully.';
                 } else {
+                    $camelize = new Camelize();
                     $message = sprintf(
                         'Model "%s" was created successfully',
-                        Text::camelize(basename($tableName, '.php'))
+                        $camelize(basename($tableName, '.php'))
                     );
                 }
 

@@ -21,8 +21,8 @@ use Phalcon\Flash\Session;
 use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\DispatcherInterface;
+use Phalcon\Support\Helper\Str\Camelize;
 use Phalcon\Tag;
-use Phalcon\Text;
 
 /**
  * @property Dispatcher|DispatcherInterface $dispatcher
@@ -63,8 +63,9 @@ class ScaffoldController extends Base
                 $scaffoldBuilder = new Scaffold(array_merge($options, ['config' => $this->config->toArray()]));
                 $scaffoldBuilder->build();
 
+                $camelize = new Camelize();
                 $this->flashSession->success(
-                    sprintf('Scaffold for table "%s" was generated successfully', Text::camelize($tableName))
+                    sprintf('Scaffold for table "%s" was generated successfully', $camelize($tableName))
                 );
 
                 return $this->response->redirect('/webtools.php/migrations/list');

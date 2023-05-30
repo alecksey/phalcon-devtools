@@ -112,10 +112,11 @@ class ErrorController extends Base
      */
     protected function setCss()
     {
+        $version = new Version();
         $this->assets
             ->collection('main_css')
             ->setTargetPath('css/webtools.css')
-            ->setTargetUri('css/webtools.css?v=' . Version::get())
+            ->setTargetUri('css/webtools.css?v=' . $version->get())
             ->addCss($this->resource->path('admin-lte/css/adminlte.min.css'), true, false)
             ->join(true)
             ->addFilter(new Cssmin);
@@ -130,10 +131,11 @@ class ErrorController extends Base
      */
     protected function setJs()
     {
+        $version = new Version();
         $this->assets
             ->collection('js_ie')
             ->setTargetPath('js/webtools-ie.js')
-            ->setTargetUri('js/webtools-ie.js?v=' . Version::get())
+            ->setTargetUri('js/webtools-ie.js?v=' . $version->get())
             ->addJs($this->resource->path('admin-lte/plugins/jquery/jquery.min.js'), true, false)
             ->addJs($this->resource->path('admin-lte/plugins/jquery-ui/jquery-ui.min.js'), true, false)
             ->addInlineJs("$.widget.bridge('uibutton', $.ui.button);", false, false)
