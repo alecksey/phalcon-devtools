@@ -22,13 +22,12 @@
         "forum": "https://forum.phalcon.io"
     },
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.0",
         "ext-pdo": "*",
         "ext-json" : "*",
         "ext-phalcon": "^5.0.0",
         "psy/psysh": "~v0.11.18",
-        "nikic/php-parser": "^4.2.4",
-        "phalcon/migrations": "^3.0",
+        "phalcon/migrations": "dev-master",
         "vlucas/phpdotenv": "^3.6|^4.0|^5.0"
     },
     "require-dev": {
