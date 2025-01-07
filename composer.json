@@ -62,5 +62,11 @@
             "tests/_support/helpers.php"
         ]
     },
+    "repositories": [
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/alecksey/phalcon-migrations"
+        }
+    ],
     "bin": ["phalcon"]
 }
